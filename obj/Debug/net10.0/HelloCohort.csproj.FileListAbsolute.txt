@@ -1,0 +1,14 @@
+C:\Users\elakkia.karunakaran\HelloCohort\bin\Debug\net10.0\HelloCohort.exe
+C:\Users\elakkia.karunakaran\HelloCohort\bin\Debug\net10.0\HelloCohort.deps.json
+C:\Users\elakkia.karunakaran\HelloCohort\bin\Debug\net10.0\HelloCohort.runtimeconfig.json
+C:\Users\elakkia.karunakaran\HelloCohort\bin\Debug\net10.0\HelloCohort.dll
+C:\Users\elakkia.karunakaran\HelloCohort\bin\Debug\net10.0\HelloCohort.pdb
+C:\Users\elakkia.karunakaran\HelloCohort\obj\Debug\net10.0\HelloCohort.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elakkia.karunakaran\HelloCohort\obj\Debug\net10.0\HelloCohort.AssemblyInfoInputs.cache
+C:\Users\elakkia.karunakaran\HelloCohort\obj\Debug\net10.0\HelloCohort.AssemblyInfo.cs
+C:\Users\elakkia.karunakaran\HelloCohort\obj\Debug\net10.0\HelloCohort.csproj.CoreCompileInputs.cache
+C:\Users\elakkia.karunakaran\HelloCohort\obj\Debug\net10.0\HelloCohort.dll
+C:\Users\elakkia.karunakaran\HelloCohort\obj\Debug\net10.0\refint\HelloCohort.dll
+C:\Users\elakkia.karunakaran\HelloCohort\obj\Debug\net10.0\HelloCohort.pdb
+C:\Users\elakkia.karunakaran\HelloCohort\obj\Debug\net10.0\HelloCohort.genruntimeconfig.cache
+C:\Users\elakkia.karunakaran\HelloCohort\obj\Debug\net10.0\ref\HelloCohort.dll
