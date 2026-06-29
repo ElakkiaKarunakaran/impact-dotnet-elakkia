@@ -24,7 +24,6 @@ Console.WriteLine($"{@class}, age {studentAge}, passed: {isPassed}");
 
 
 
-// Comment explaining the difference:
 // Without "using", we must fully qualify the class name (SchoolManagement.Student) every time.
 // With "using", the compiler already knows where to look, so we can just write "Student".
 // Both should run fine together in the same file. That comment at the bottom is your "noted
