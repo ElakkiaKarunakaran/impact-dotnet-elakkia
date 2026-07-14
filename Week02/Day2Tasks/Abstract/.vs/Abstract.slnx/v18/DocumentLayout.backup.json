@@ -1,0 +1,162 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|c:\\users\\elakkia.karunakaran\\source\\repos\\week01\\impact-dotnet-elakkia\\week02\\day2tasks\\abstract\\abstract\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|solutionrelative:abstract\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|c:\\users\\elakkia.karunakaran\\source\\repos\\week01\\impact-dotnet-elakkia\\week02\\day2tasks\\abstract\\abstract\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|solutionrelative:abstract\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|c:\\users\\elakkia.karunakaran\\source\\repos\\week01\\impact-dotnet-elakkia\\week02\\day2tasks\\abstract\\abstract\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|solutionrelative:abstract\\shape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|c:\\users\\elakkia.karunakaran\\source\\repos\\week01\\impact-dotnet-elakkia\\week02\\day2tasks\\abstract\\abstract\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|solutionrelative:abstract\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|c:\\users\\elakkia.karunakaran\\source\\repos\\week01\\impact-dotnet-elakkia\\week02\\day2tasks\\abstract\\abstract\\calculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|solutionrelative:abstract\\calculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|c:\\users\\elakkia.karunakaran\\source\\repos\\week01\\impact-dotnet-elakkia\\week02\\day2tasks\\abstract\\abstract\\interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CEB5EDE-6B1E-4E2A-9489-F283379C410E}|Abstract\\Abstract.csproj|solutionrelative:abstract\\interface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 15,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Money.cs",
+              "DocumentMoniker": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Money.cs",
+              "RelativeDocumentMoniker": "Abstract\\Money.cs",
+              "ToolTip": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Money.cs",
+              "RelativeToolTip": "Abstract\\Money.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAywBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T07:17:11.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Logger.cs",
+              "RelativeDocumentMoniker": "Abstract\\Logger.cs",
+              "ToolTip": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Logger.cs",
+              "RelativeToolTip": "Abstract\\Logger.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAQwAgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-08T06:43:21.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Calculator.cs",
+              "DocumentMoniker": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Calculator.cs",
+              "RelativeDocumentMoniker": "Abstract\\Calculator.cs",
+              "ToolTip": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Calculator.cs",
+              "RelativeToolTip": "Abstract\\Calculator.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAQwA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-07T13:04:53.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Interface.cs",
+              "DocumentMoniker": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Interface.cs",
+              "RelativeDocumentMoniker": "Abstract\\Interface.cs",
+              "ToolTip": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Interface.cs",
+              "RelativeToolTip": "Abstract\\Interface.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAADwvycAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-07T09:47:37.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Shape.cs",
+              "DocumentMoniker": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Shape.cs",
+              "RelativeDocumentMoniker": "Abstract\\Shape.cs",
+              "ToolTip": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Shape.cs",
+              "RelativeToolTip": "Abstract\\Shape.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-07T09:39:02.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Program.cs",
+              "RelativeDocumentMoniker": "Abstract\\Program.cs",
+              "ToolTip": "C:\\Users\\elakkia.karunakaran\\source\\repos\\Week01\\impact-dotnet-elakkia\\Week02\\Day2Tasks\\Abstract\\Abstract\\Program.cs",
+              "RelativeToolTip": "Abstract\\Program.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAqwE8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-07T06:30:55.324Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
