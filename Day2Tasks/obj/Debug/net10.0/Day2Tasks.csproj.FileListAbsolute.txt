@@ -1,0 +1,14 @@
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\bin\Debug\net10.0\Day2Tasks.exe
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\bin\Debug\net10.0\Day2Tasks.deps.json
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\bin\Debug\net10.0\Day2Tasks.runtimeconfig.json
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\bin\Debug\net10.0\Day2Tasks.dll
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\bin\Debug\net10.0\Day2Tasks.pdb
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\obj\Debug\net10.0\Day2Tasks.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\obj\Debug\net10.0\Day2Tasks.AssemblyInfoInputs.cache
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\obj\Debug\net10.0\Day2Tasks.AssemblyInfo.cs
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\obj\Debug\net10.0\Day2Tasks.csproj.CoreCompileInputs.cache
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\obj\Debug\net10.0\Day2Tasks.dll
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\obj\Debug\net10.0\refint\Day2Tasks.dll
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\obj\Debug\net10.0\Day2Tasks.pdb
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\obj\Debug\net10.0\Day2Tasks.genruntimeconfig.cache
+C:\Users\elakkia.karunakaran\source\repos\Day2Tasks\Day2Tasks\obj\Debug\net10.0\ref\Day2Tasks.dll
