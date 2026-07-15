@@ -1,0 +1,14 @@
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\bin\Debug\net10.0\LibraryManagement.exe
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\bin\Debug\net10.0\LibraryManagement.deps.json
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\bin\Debug\net10.0\LibraryManagement.runtimeconfig.json
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\bin\Debug\net10.0\LibraryManagement.dll
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\bin\Debug\net10.0\LibraryManagement.pdb
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\obj\Debug\net10.0\LibraryManagement.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\obj\Debug\net10.0\LibraryManagement.AssemblyInfoInputs.cache
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\obj\Debug\net10.0\LibraryManagement.AssemblyInfo.cs
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\obj\Debug\net10.0\LibraryManagement.csproj.CoreCompileInputs.cache
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\obj\Debug\net10.0\LibraryManagement.dll
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\obj\Debug\net10.0\refint\LibraryManagement.dll
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\obj\Debug\net10.0\LibraryManagement.pdb
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\obj\Debug\net10.0\LibraryManagement.genruntimeconfig.cache
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\LibraryManagement\LibraryManagement\obj\Debug\net10.0\ref\LibraryManagement.dll
