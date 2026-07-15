@@ -1,0 +1,14 @@
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\obj\Debug\net10.0\NotificationEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\obj\Debug\net10.0\NotificationEngine.AssemblyInfoInputs.cache
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\obj\Debug\net10.0\NotificationEngine.AssemblyInfo.cs
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\obj\Debug\net10.0\NotificationEngine.csproj.CoreCompileInputs.cache
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\bin\Debug\net10.0\NotificationEngine.exe
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\bin\Debug\net10.0\NotificationEngine.deps.json
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\bin\Debug\net10.0\NotificationEngine.runtimeconfig.json
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\bin\Debug\net10.0\NotificationEngine.dll
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\bin\Debug\net10.0\NotificationEngine.pdb
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\obj\Debug\net10.0\NotificationEngine.dll
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\obj\Debug\net10.0\refint\NotificationEngine.dll
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\obj\Debug\net10.0\NotificationEngine.pdb
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\obj\Debug\net10.0\NotificationEngine.genruntimeconfig.cache
+C:\Users\elakkia.karunakaran\source\repos\Week01\impact-dotnet-elakkia\Week02\Day5Tasks\NotificationEngine\NotificationEngine\obj\Debug\net10.0\ref\NotificationEngine.dll
