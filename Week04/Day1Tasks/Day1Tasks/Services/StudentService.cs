@@ -68,11 +68,3 @@
 
 	public IEnumerable<string> GetTransactionLog() => transactionLog;
 }
-
-// We chose tuple because:
-// → bool tells caller if it worked
-// → string tells caller WHY it failed
-// → Simple, no extra classes needed
-// → Alternative: throw exception (for truly exceptional cases)
-//   or result object (for complex scenarios)
-// Tuple is cleanest for simple success/failure with a message
