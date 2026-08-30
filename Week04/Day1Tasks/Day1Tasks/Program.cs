@@ -1,24 +1,24 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-// Manual DI 
-var studentRepo = new InMemoryRepository<Student>(s => s.Id, (s, id) => s.Id = id);
+//// Manual DI 
+//var studentRepo = new InMemoryRepository<Student>(s => s.Id, (s, id) => s.Id = id);
 
-// Seed some data
-studentRepo.Seed(new List<Student>
-{
-	new Student { Name="Elakkia", Age=21, RollNumber="R001", Email="elakkia@email.com" },
-	new Student { Name="X",   Age=22, RollNumber="R002", Email="x@email.com"   },
-	new Student { Name="Ani",   Age=23, RollNumber="R003", Email="ani@email.com"   }
-});
+//// Seed some data
+//studentRepo.Seed(new List<Student>
+//{
+//	new Student { Name="Elakkia", Age=21, RollNumber="R001", Email="elakkia@email.com" },
+//	new Student { Name="X",   Age=22, RollNumber="R002", Email="x@email.com"   },
+//	new Student { Name="Ani",   Age=23, RollNumber="R003", Email="ani@email.com"   }
+//});
 
 
-var studentService = new StudentService(studentRepo);
+//var studentService = new StudentService(studentRepo);
 
-// Step 3 — create view and controller, pass service and view in
-var studentView = new StudentView();
-var controller = new StudentController(studentService, studentView);
+//// Step 3 — create view and controller, pass service and view in
+//var studentView = new StudentView();
+//var controller = new StudentController(studentService, studentView);
 
-// Step 4 — run
-controller.Run();
+//// Step 4 — run
+//controller.Run();
 
 // To swap repo — just change ONE line above:
 // var studentRepo = new SqlRepository<Student>(...);

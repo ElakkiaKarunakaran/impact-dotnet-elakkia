@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "k8m1JUp0K7o=",
+  "dgSpecHash": "mZ6lRBPgJoo=",
   "success": true,
   "projectFilePath": "C:\\Users\\elakkia.karunakaran\\source\\repos\\impact-dotnet-elakkia\\Week04\\Day1Tasks\\Day1Tasks\\Day1Tasks.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\elakkia.karunakaran\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\elakkia.karunakaran\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.11\\microsoft.extensions.dependencyinjection.10.0.11.nupkg.sha512",
-    "C:\\Users\\elakkia.karunakaran\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.11\\microsoft.extensions.dependencyinjection.abstractions.10.0.11.nupkg.sha512"
+    "C:\\Users\\elakkia.karunakaran\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.11\\microsoft.extensions.dependencyinjection.abstractions.10.0.11.nupkg.sha512",
+    "C:\\Users\\elakkia.karunakaran\\.nuget\\packages\\moq\\4.20.72\\moq.4.20.72.nupkg.sha512",
+    "C:\\Users\\elakkia.karunakaran\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
+    "C:\\Users\\elakkia.karunakaran\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }
