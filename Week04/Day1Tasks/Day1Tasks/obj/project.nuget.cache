@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "k8m1JUp0K7o=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\elakkia.karunakaran\\source\\repos\\impact-dotnet-elakkia\\Week04\\Day1Tasks\\Day1Tasks\\Day1Tasks.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\elakkia.karunakaran\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.11\\microsoft.extensions.dependencyinjection.10.0.11.nupkg.sha512",
+    "C:\\Users\\elakkia.karunakaran\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.11\\microsoft.extensions.dependencyinjection.abstractions.10.0.11.nupkg.sha512"
+  ],
+  "logs": []
+}
