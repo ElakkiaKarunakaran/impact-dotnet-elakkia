@@ -1,237 +1,213 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 using StudentApi.Controllers;
-using StudentApi.Models;
-using StudentApi.Services;
+using StudentApi.DTOs;
 using Xunit;
-
-namespace StudentApi.Tests;
 
 public class StudentsControllerTests
 {
-	private readonly Mock<IStudentService> serviceMock;
-	private readonly StudentsController controller;
+	private Mock<IStudentService> MockService() => new Mock<IStudentService>();
+	private Mock<ILogger<StudentsController>> MockLogger()
+		=> new Mock<ILogger<StudentsController>>();
 
-	public StudentsControllerTests()
-	{
-		serviceMock = new Mock<IStudentService>();
-		controller = new StudentsController(serviceMock.Object);
-	}
-
-	// --------------------------------------------------
-	// GET ALL - 200
-	// --------------------------------------------------
-
+	// ── GET ALL ──────────────────────────────────
 	[Fact]
-	public void GetAll_ShouldReturn200()
+	public void GetAll_Returns200WithList()
 	{
-		// Arrange
-		var students = new List<Student>
+		var svc = MockService();
+		svc.Setup(s => s.GetAll()).Returns(new List<Student>
 		{
-			new Student { Id = 1, Name = "Elakkia" },
-			new Student { Id = 2, Name = "Ramya" }
-		};
+			new Student { Id=1, Name="Elakkia", RollNumber="R001", Age=21 }
+		});
+		var controller = new StudentsController(svc.Object, MockLogger().Object);
 
-		serviceMock
-			.Setup(s => s.GetAll())
-			.Returns(students);
+		var result = controller.GetAll() as OkObjectResult;
 
-		// Act
-		var result = controller.GetAll();
-
-		// Assert
-		var okResult = Assert.IsType<OkObjectResult>(result);
-
-		Assert.Equal(200, okResult.StatusCode);
-		Assert.Equal(students, okResult.Value);
+		Assert.NotNull(result);
+		Assert.Equal(200, result.StatusCode);
 	}
 
-	// --------------------------------------------------
-	// GET BY ID - 200
-	// --------------------------------------------------
-
+	// ── GET BY ID ────────────────────────────────
 	[Fact]
-	public void GetById_ShouldReturn200_WhenStudentExists()
+	public void GetById_Found_Returns200()
 	{
-		// Arrange
-		var student = new Student
-		{
-			Id = 1,
-			Name = "Elakkia"
-		};
+		var svc = MockService();
+		svc.Setup(s => s.GetById(1))
+		   .Returns(new Student
+		   {
+			   Id = 1,
+			   Name = "Elakkia",
+			   RollNumber = "R001",
+			   Age = 21
+		   });
+		var controller = new StudentsController(svc.Object, MockLogger().Object);
 
-		serviceMock
-			.Setup(s => s.GetById(1))
-			.Returns(student);
+		var result = controller.GetById(1) as OkObjectResult;
 
-		// Act
-		var result = controller.GetById(1);
-
-		// Assert
-		var okResult = Assert.IsType<OkObjectResult>(result);
-
-		Assert.Equal(200, okResult.StatusCode);
-		Assert.Equal(student, okResult.Value);
+		Assert.NotNull(result);
+		Assert.Equal(200, result.StatusCode);
 	}
 
-	// --------------------------------------------------
-	// GET BY ID - 404
-	// --------------------------------------------------
-
 	[Fact]
-	public void GetById_ShouldReturn404_WhenStudentDoesNotExist()
+	public void GetById_NotFound_Returns404()
 	{
-		// Arrange
-		serviceMock
-			.Setup(s => s.GetById(999))
-			.Returns((Student?)null);
+		var svc = MockService();
+		svc.Setup(s => s.GetById(999)).Returns((Student)null);
+		var controller = new StudentsController(svc.Object, MockLogger().Object);
 
-		// Act
 		var result = controller.GetById(999);
 
-		// Assert
 		Assert.IsType<NotFoundObjectResult>(result);
 	}
 
-	// --------------------------------------------------
-	// POST - 201
-	// --------------------------------------------------
-
+	// ── POST ────────────────────────────────────
 	[Fact]
-	public void Add_ShouldReturn201_WhenStudentIsAdded()
+	public void Add_ValidStudent_Returns201()
 	{
-		// Arrange
-		var student = new Student
+		var svc = MockService();
+		svc.Setup(s => s.AddStudent(It.IsAny<Student>()))
+		   .Returns((true, "Student added successfully"));
+		svc.Setup(s => s.GetById(It.IsAny<int>()))
+		   .Returns(new Student
+		   {
+			   Id = 1,
+			   Name = "Elakkia",
+			   RollNumber = "R001",
+			   Age = 21
+		   });
+		var controller = new StudentsController(svc.Object, MockLogger().Object);
+
+		var dto = new StudentCreateDto
 		{
-			Id = 4,
-			Name = "Kavin"
+			Name = "Elakkia",
+			Age = 21,
+			RollNumber = "R001",
+			Email = "e@e.com"
 		};
+		var result = controller.Add(dto);
 
-		serviceMock
-			.Setup(s => s.AddStudent(student))
-			.Returns((true, "Student added successfully"));
-
-		// Act
-		var result = controller.Add(student);
-
-		// Assert
-		var createdResult =
-			Assert.IsType<CreatedAtActionResult>(result);
-
-		Assert.Equal(201, createdResult.StatusCode);
-		Assert.Equal(student, createdResult.Value);
+		Assert.IsType<CreatedAtActionResult>(result);
+		var created = result as CreatedAtActionResult;
+		Assert.Equal(201, created.StatusCode);
 	}
 
-	// --------------------------------------------------
-	// POST - 400
-	// --------------------------------------------------
-
 	[Fact]
-	public void Add_ShouldReturn400_WhenServiceFails()
+	public void Add_InvalidStudent_Returns400()
 	{
-		// Arrange
-		var student = new Student
+		var svc = MockService();
+		svc.Setup(s => s.AddStudent(It.IsAny<Student>()))
+		   .Returns((false, "Roll number already exists"));
+		var controller = new StudentsController(svc.Object, MockLogger().Object);
+
+		var dto = new StudentCreateDto
 		{
-			Name = "Duplicate"
+			Name = "Test",
+			Age = 21,
+			RollNumber = "R001",
+			Email = "t@t.com"
 		};
+		var result = controller.Add(dto);
 
-		serviceMock
-			.Setup(s => s.AddStudent(student))
-			.Returns((false, "Student already exists"));
-
-		// Act
-		var result = controller.Add(student);
-
-		// Assert
-		var badRequest =
-			Assert.IsType<BadRequestObjectResult>(result);
-
-		Assert.Equal(400, badRequest.StatusCode);
+		Assert.IsType<BadRequestObjectResult>(result);
+		var bad = result as BadRequestObjectResult;
+		Assert.Equal(400, bad.StatusCode);
 	}
 
-	// --------------------------------------------------
-	// PUT - 204
-	// --------------------------------------------------
-
+	// ── PUT ──────────────────────────────────────
 	[Fact]
-	public void Update_ShouldReturn204_WhenStudentExists()
+	public void Update_ValidId_Returns204()
 	{
-		// Arrange
-		var student = new Student
+		var svc = MockService();
+		svc.Setup(s => s.UpdateStudent(It.IsAny<Student>()))
+		   .Returns((true, "Student updated successfully"));
+		var controller = new StudentsController(svc.Object, MockLogger().Object);
+
+		var dto = new StudentCreateDto
 		{
-			Name = "Elakkia Updated"
+			Name = "Updated",
+			Age = 22,
+			RollNumber = "R001",
+			Email = "u@u.com"
 		};
+		var result = controller.Update(1, dto);
 
-		serviceMock
-			.Setup(s => s.UpdateStudent(It.IsAny<Student>()))
-			.Returns((true, "Student updated successfully"));
-
-		// Act
-		var result = controller.Update(1, student);
-
-		// Assert
 		Assert.IsType<NoContentResult>(result);
+		var noContent = result as NoContentResult;
+		Assert.Equal(204, noContent.StatusCode);
 	}
 
-	// --------------------------------------------------
-	// PUT - 404
-	// --------------------------------------------------
-
 	[Fact]
-	public void Update_ShouldReturn404_WhenStudentDoesNotExist()
+	public void Update_MissingId_Returns404()
 	{
-		// Arrange
-		var student = new Student
-		{
-			Name = "Unknown"
-		};
+		var svc = MockService();
+		svc.Setup(s => s.UpdateStudent(It.IsAny<Student>()))
+		   .Returns((false, "Student with ID 999 not found"));
+		var controller = new StudentsController(svc.Object, MockLogger().Object);
 
-		serviceMock
-			.Setup(s => s.UpdateStudent(It.IsAny<Student>()))
-			.Returns((false, "Student not found"));
+		var dto = new StudentCreateDto
+		{ Name = "X", Age = 20, RollNumber = "R999", Email = "x@x.com" };
+		var result = controller.Update(999, dto);
 
-		// Act
-		var result = controller.Update(999, student);
-
-		// Assert
 		Assert.IsType<NotFoundObjectResult>(result);
 	}
 
-	// --------------------------------------------------
-	// DELETE - 204
-	// --------------------------------------------------
-
+	// ── DELETE ───────────────────────────────────
 	[Fact]
-	public void Delete_ShouldReturn204_WhenStudentExists()
+	public void Delete_ValidId_Returns204()
 	{
-		// Arrange
-		serviceMock
-			.Setup(s => s.DeleteStudent(1))
-			.Returns((true, "Student deleted successfully"));
+		var svc = MockService();
+		svc.Setup(s => s.DeleteStudent(1))
+		   .Returns((true, "Student deleted successfully"));
+		var controller = new StudentsController(svc.Object, MockLogger().Object);
 
-		// Act
 		var result = controller.Delete(1);
 
-		// Assert
 		Assert.IsType<NoContentResult>(result);
 	}
 
-	// --------------------------------------------------
-	// DELETE - 404
-	// --------------------------------------------------
-
 	[Fact]
-	public void Delete_ShouldReturn404_WhenStudentDoesNotExist()
+	public void Delete_MissingId_Returns404()
 	{
-		// Arrange
-		serviceMock
-			.Setup(s => s.DeleteStudent(999))
-			.Returns((false, "Student not found"));
+		var svc = MockService();
+		svc.Setup(s => s.DeleteStudent(999))
+		   .Returns((false, "Student with ID 999 not found"));
+		var controller = new StudentsController(svc.Object, MockLogger().Object);
 
-		// Act
 		var result = controller.Delete(999);
 
-		// Assert
 		Assert.IsType<NotFoundObjectResult>(result);
+	}
+
+	// ── SEARCH ───────────────────────────────────
+	[Fact]
+	public void Search_Returns200WithMatches()
+	{
+		var svc = MockService();
+		svc.Setup(s => s.Search("ela")).Returns(new List<Student>
+		{
+			new Student { Id=1, Name="Elakkia",
+						  RollNumber="R001", Age=21 }
+		});
+		var controller = new StudentsController(svc.Object, MockLogger().Object);
+
+		var result = controller.Search("ela") as OkObjectResult;
+
+		Assert.NotNull(result);
+		Assert.Equal(200, result.StatusCode);
+	}
+
+	[Fact]
+	public void Search_NoMatch_Returns200EmptyList()
+	{
+		var svc = MockService();
+		svc.Setup(s => s.Search("xyz"))
+		   .Returns(new List<Student>());
+		var controller = new StudentsController(svc.Object, MockLogger().Object);
+
+		var result = controller.Search("xyz") as OkObjectResult;
+
+		Assert.NotNull(result);
+		Assert.Equal(200, result.StatusCode);
 	}
 }

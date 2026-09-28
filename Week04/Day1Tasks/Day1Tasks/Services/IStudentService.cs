@@ -7,7 +7,4 @@
 	(bool Success, string Message) DeleteStudent(int id);
     IEnumerable<string> GetTransactionLog();
 
-
-
-
 }
