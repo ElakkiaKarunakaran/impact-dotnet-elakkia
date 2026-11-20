@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using StudentApi.Data.DbFirst;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +10,33 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Task 8.9 — CORS: allow the React dev server origin
+var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>()
+                     ?? new[] { "http://localhost:5173" };
+builder.Services.AddCors(options =>
+    options.AddPolicy("ReactApp", policy =>
+        policy.WithOrigins(allowedOrigins)
+              .AllowAnyHeader()
+              .WithMethods("GET", "POST", "PUT", "DELETE")));
+
+// Task 8.7 — JWT Bearer authentication
+var jwtKey = builder.Configuration["Jwt:Key"]!;
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer           = true,
+            ValidIssuer              = builder.Configuration["Jwt:Issuer"],
+            ValidateAudience         = true,
+            ValidAudience            = builder.Configuration["Jwt:Audience"],
+            ValidateLifetime         = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey         = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+        };
+    });
+builder.Services.AddAuthorization();
 
 // Task 7.1 — connection string from IConfiguration (never hard-coded)
 var connStr   = builder.Configuration.GetConnectionString("StudentDb")!;
@@ -26,7 +56,6 @@ switch (dataLayer)
         builder.Services.AddDbContext<AppDbContext>(o =>
             o.UseSqlServer(connStr));
         builder.Services.AddScoped<IRepository<Student>, EfStudentRepository>();
-        // EF Code First user store (reuses same context)
         builder.Services.AddScoped<IUserStore, EfUserRepository>();
         break;
 
@@ -34,7 +63,6 @@ switch (dataLayer)
         builder.Services.AddDbContext<DbFirstContext>(o =>
             o.UseSqlServer(connStr));
         builder.Services.AddScoped<IRepository<Student>, DbFirstStudentRepository>();
-        // DB-First user store
         builder.Services.AddScoped<IUserStore, DbFirstUserRepository>();
         break;
 
@@ -54,12 +82,13 @@ switch (dataLayer)
         break;
 }
 
-// Service — Scoped (one per HTTP request)
+// inject Jwt config so AuthController can generate tokens
+builder.Services.AddSingleton(builder.Configuration);
+
 builder.Services.AddScoped<IStudentService, StudentService>();
 
 var app = builder.Build();
 
-// Middleware pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -67,10 +96,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("ReactApp");        // Task 8.9 — before auth
+app.UseAuthentication();        // Task 8.7
 app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
 
-// Required for test project's WebApplicationFactory
 public partial class Program { }
