@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentApi.DTOs;
 
 namespace StudentApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]   // Task 9.1 — all endpoints require authentication
 public class StudentsController : ControllerBase
 {
 	private readonly IStudentService service;
@@ -55,6 +57,7 @@ public class StudentsController : ControllerBase
 
 	// POST: api/students
 	[HttpPost]
+	[Authorize(Roles = "Teacher")]   // Task 9.2 — Teacher only
 	public IActionResult Add([FromBody] StudentCreateDto dto)
 	{
 		var student = StudentMapper.ToEntity(dto); // map dto to entity
@@ -67,6 +70,7 @@ public class StudentsController : ControllerBase
 
 	// PUT: api/students/1
 	[HttpPut("{id}")]
+	[Authorize(Roles = "Teacher")]   // Task 9.2 — Teacher only
 	public IActionResult Update(
 		int id,
 		[FromBody] StudentCreateDto dto)
@@ -91,6 +95,7 @@ public class StudentsController : ControllerBase
 
 	// DELETE: api/students/1
 	[HttpDelete("{id}")]
+	[Authorize(Roles = "Teacher")]   // Task 9.2 — Teacher only
 	public IActionResult Delete(int id)
 	{
 		var result = service.DeleteStudent(id);

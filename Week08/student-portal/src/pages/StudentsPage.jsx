@@ -40,19 +40,35 @@ export default function StudentsPage() {
 
   async function handleDelete(id) {
     if (!window.confirm('Delete this student?')) return;
-    await axiosInstance.delete(`/api/students/${id}`);
-    setStudents(prev => prev.filter(s => s.id !== id));
+    try {
+      await axiosInstance.delete(`/api/students/${id}`);
+      setStudents(prev => prev.filter(s => s.id !== id));
+    } catch (err) {
+      if (err.response?.status === 403)
+        setError('Access denied — only Teachers can delete students.');
+      else
+        setError('Failed to delete student. Please try again.');
+    }
   }
 
   async function handleAdd(e) {
     e.preventDefault();
-    const { data } = await axiosInstance.post('/api/students', {
-      name: newStudent.name, age: parseInt(newStudent.age),
-      rollNumber: newStudent.rollNumber, email: newStudent.email,
-    });
-    setStudents(prev => [...prev, data]);
-    setNewStudent({ name: '', age: '', rollNumber: '', email: '' });
-    setShowAdd(false);
+    try {
+      const { data } = await axiosInstance.post('/api/students', {
+        name: newStudent.name, age: parseInt(newStudent.age),
+        rollNumber: newStudent.rollNumber, email: newStudent.email,
+      });
+      setStudents(prev => [...prev, data]);
+      setNewStudent({ name: '', age: '', rollNumber: '', email: '' });
+      setShowAdd(false);
+    } catch (err) {
+      if (err.response?.status === 403)
+        setError('Access denied — only Teachers can add students.');
+      else if (err.response?.status === 400)
+        setError(err.response.data ?? 'Invalid student data.');
+      else
+        setError('Server error — please try again later.');
+    }
   }
 
   function handleLogout() {
