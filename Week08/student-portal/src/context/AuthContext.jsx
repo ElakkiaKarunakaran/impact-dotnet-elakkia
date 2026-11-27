@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import axiosInstance, { setTokenGetter } from '../api/axiosInstance';
+import { IDENTITY_PREFIX } from '../api/apiPaths';
 
 const AuthContext = createContext(null);
 
@@ -12,14 +13,14 @@ export function AuthProvider({ children }) {
   setTokenGetter(() => token);
 
   async function login(username, password) {
-    const { data } = await axiosInstance.post('/api/auth/login', { username, password });
+    const { data } = await axiosInstance.post(`${IDENTITY_PREFIX}/api/auth/login`, { username, password });
     setToken(data.token);
     setUser({ username: data.username, role: data.role });
     return data;
   }
 
   async function register(username, password, role) {
-    const { data } = await axiosInstance.post('/api/auth/register', { username, password, role });
+    const { data } = await axiosInstance.post(`${IDENTITY_PREFIX}/api/auth/register`, { username, password, role });
     return data;
   }
 

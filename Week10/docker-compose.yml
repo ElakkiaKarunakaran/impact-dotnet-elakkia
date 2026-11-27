@@ -1,0 +1,113 @@
+# Week 10 — Task 10.6
+# Brings up the whole microservices portal: SQL Server, the 3 services, the
+# YARP gateway, and the React client. Run from the repo root:
+#   docker-compose -f Week10/docker-compose.yml up --build
+
+services:
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: week10-sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Your_strong_Password123"
+    ports:
+      - "14330:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  # Task 10.1/10.2/10.4 — one-shot job: creates IdentityDb + ReportingDb and
+  # their stored procs / view. AcademicsDb is created by EF migrations instead
+  # (dotnet ef / Database.Migrate() on Academics' own startup).
+  init-db:
+    image: mcr.microsoft.com/mssql-tools18
+    container_name: week10-init-db
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    volumes:
+      - ./Sql:/sql:ro
+    entrypoint: >
+      /bin/bash -c "
+      /opt/mssql-tools18/bin/sqlcmd -C -S sqlserver -U sa -P 'Your_strong_Password123' -i /sql/identity-init.sql &&
+      /opt/mssql-tools18/bin/sqlcmd -C -S sqlserver -U sa -P 'Your_strong_Password123' -i /sql/reporting-init.sql
+      "
+
+  identity:
+    build:
+      context: ..
+      dockerfile: Week10/Identity/Dockerfile
+    container_name: week10-identity
+    depends_on:
+      init-db:
+        condition: service_completed_successfully
+    ports:
+      - "8081:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__IdentityDb: "Server=sqlserver,1433;Database=IdentityDb;User Id=sa;Password=Your_strong_Password123;TrustServerCertificate=True"
+
+  academics:
+    build:
+      context: ..
+      dockerfile: Week10/Academics/Dockerfile
+    container_name: week10-academics
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    ports:
+      - "8082:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__AcademicsDb: "Server=sqlserver,1433;Database=AcademicsDb;User Id=sa;Password=Your_strong_Password123;TrustServerCertificate=True"
+
+  reporting:
+    build:
+      context: ..
+      dockerfile: Week10/Reporting/Dockerfile
+    container_name: week10-reporting
+    depends_on:
+      init-db:
+        condition: service_completed_successfully
+    ports:
+      - "8083:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__ReportingDb: "Server=sqlserver,1433;Database=ReportingDb;User Id=sa;Password=Your_strong_Password123;TrustServerCertificate=True"
+
+  # Task 10.5 — gateway: the only backend address the React client knows about.
+  gateway:
+    build:
+      context: ..
+      dockerfile: Week10/Gateway/Dockerfile
+    container_name: week10-gateway
+    depends_on:
+      - identity
+      - academics
+      - reporting
+    ports:
+      - "8080:8080"
+
+  web:
+    build:
+      context: ..
+      dockerfile: Week10/web/Dockerfile
+    container_name: week10-web
+    depends_on:
+      - gateway
+    ports:
+      - "5173:80"
+    environment:
+      API_BASE_URL: "http://localhost:8080"
+      IDENTITY_PREFIX: "/identity"
+      ACADEMICS_PREFIX: "/academics"
+      REPORTING_PREFIX: "/reporting"
+
+volumes:
+  sqlserver-data:

@@ -1,8 +1,13 @@
 import axios from 'axios';
 
 // Task 8.7 — axios instance with base URL; interceptor attaches JWT Bearer header
+// Task 10.5 — base URL is overridable via window.__ENV__ (injected at container
+// start, see Week10/docker-compose.yml) so the SAME build can point at either
+// the Week07 monolith directly, or the Week10 gateway (http://localhost:8080).
+// A plain global (not import.meta.env) keeps this file parseable by Jest/Babel
+// with zero extra tooling.
 const instance = axios.create({
-  baseURL: 'http://localhost:5259',
+  baseURL: (typeof window !== 'undefined' && window.__ENV__?.API_BASE_URL) || 'http://localhost:5259',
 });
 
 let _getToken = () => null;

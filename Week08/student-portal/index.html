@@ -7,6 +7,10 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Task 10.5 — runtime config injected at container start (Week10/web/env.sh).
+         Absent (plain `npm run dev`), window.__ENV__ stays undefined and the
+         client falls back to its Week07/08/09 defaults — unaffected. -->
+    <script src="/env.js"></script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

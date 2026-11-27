@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axiosInstance from '../api/axiosInstance';
+import { ACADEMICS_PREFIX } from '../api/apiPaths';
 import StudentList from '../components/StudentList';
 import SearchBox from '../components/SearchBox';
 
@@ -29,7 +30,7 @@ export default function StudentsPage() {
   async function fetchStudents() {
     setLoading(true);
     try {
-      const { data } = await axiosInstance.get('/api/students');
+      const { data } = await axiosInstance.get(`${ACADEMICS_PREFIX}/api/students`);
       setStudents(data);
     } catch {
       setError('Failed to load students.');
@@ -41,7 +42,7 @@ export default function StudentsPage() {
   async function handleDelete(id) {
     if (!window.confirm('Delete this student?')) return;
     try {
-      await axiosInstance.delete(`/api/students/${id}`);
+      await axiosInstance.delete(`${ACADEMICS_PREFIX}/api/students/${id}`);
       setStudents(prev => prev.filter(s => s.id !== id));
     } catch (err) {
       if (err.response?.status === 403)
@@ -54,7 +55,7 @@ export default function StudentsPage() {
   async function handleAdd(e) {
     e.preventDefault();
     try {
-      const { data } = await axiosInstance.post('/api/students', {
+      const { data } = await axiosInstance.post(`${ACADEMICS_PREFIX}/api/students`, {
         name: newStudent.name, age: parseInt(newStudent.age),
         rollNumber: newStudent.rollNumber, email: newStudent.email,
       });
@@ -84,6 +85,7 @@ export default function StudentsPage() {
     <>
       <nav>
         <span style={{ color: '#fff', fontWeight: 700, fontSize: '1.1rem' }}>Student Portal</span>
+        <Link to="/reporting" className="btn btn-teal" style={{ marginLeft: '1rem' }}>Reporting</Link>
         <button className="btn btn-lime" onClick={handleLogout} style={{ marginLeft: 'auto' }}>
           Logout
         </button>
