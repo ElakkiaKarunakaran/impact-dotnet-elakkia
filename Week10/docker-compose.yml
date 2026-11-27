@@ -25,8 +25,11 @@ services:
   # Task 10.1/10.2/10.4 — one-shot job: creates IdentityDb + ReportingDb and
   # their stored procs / view. AcademicsDb is created by EF migrations instead
   # (dotnet ef / Database.Migrate() on Academics' own startup).
+  # Reuses the SAME SQL Server image as `sqlserver` — it already bundles
+  # sqlcmd at /opt/mssql-tools18/bin/sqlcmd, so no separate tools image
+  # (there isn't an official standalone "mssql-tools18" image) is needed.
   init-db:
-    image: mcr.microsoft.com/mssql-tools18
+    image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: week10-init-db
     depends_on:
       sqlserver:
